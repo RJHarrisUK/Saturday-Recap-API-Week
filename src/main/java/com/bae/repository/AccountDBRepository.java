@@ -25,10 +25,10 @@ public class AccountDBRepository {
 	// manager.find();
 
 	// UPDATE
-	public Account update(int id) {
+	public Account update(int id, String name) {
 		transaction.begin();
 		Account returned = manager.find(Account.class, id);
-		returned.setName("Lucy");
+		returned.setName(name);
 		transaction.commit();
 		return returned;
 	}

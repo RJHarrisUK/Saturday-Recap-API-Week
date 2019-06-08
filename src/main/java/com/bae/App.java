@@ -19,7 +19,7 @@ public class App {
 		AccountDBRepository db = new AccountDBRepository();
 		// call the method in the DB repo to persist the account.
 		db.create(a);
-		db.update(10);
+		db.update(12, "Lucy");
 	}
 	
 }
