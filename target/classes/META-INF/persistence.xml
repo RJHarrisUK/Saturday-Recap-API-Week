@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<!-- setting up database -->
+	<persistence-unit name="myPU" transaction-type="RESOURCE_LOCAL">
+		<properties>
+			<!-- which driver to connect software to software -->
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<!-- where to find the database -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test;" />
+			<!-- username to connect to DB -->
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<!-- password to connect to DB -->
+			<property name="javax.persistence.jdbc.password" value="" />
+			<!-- which DB language -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<!-- updates the DB when connects, based on what java written -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>
