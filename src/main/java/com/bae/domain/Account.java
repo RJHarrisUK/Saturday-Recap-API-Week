@@ -1,8 +1,14 @@
 package com.bae.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Account {
@@ -13,6 +19,12 @@ public class Account {
 	private int id;
 	private String name;
 
+	// instantiate task collection
+	@OneToMany(cascade = CascadeType.PERSIST) // declare one to many relationship
+	@JoinColumn
+	// must be a collection for one to many to work
+	Set<Task> tasklist = new HashSet<Task>();
+
 	// constructor
 	public Account() {
 	}
@@ -20,6 +32,14 @@ public class Account {
 	// getters and setters
 	public int getId() {
 		return id;
+	}
+
+	public Set<Task> getTasklist() {
+		return tasklist;
+	}
+
+	public void setTasklist(Set<Task> tasklist) {
+		this.tasklist = tasklist;
 	}
 
 	public void setId(int id) {
