@@ -14,11 +14,25 @@ public class AccountDBRepository {
 	EntityTransaction transaction = manager.getTransaction();
 
 	// CREATE
-	public Account create(Account account) {																					 
+	public Account create(Account account) {
 		transaction.begin();
 		manager.persist(account);
+		account.setName("Chris");
 		transaction.commit();
 		return account;
 	}
+	// READ
+	// manager.find();
+
+	// UPDATE
+	public Account update(int id) {
+		transaction.begin();
+		Account returned = manager.find(Account.class, id);
+		returned.setName("Lucy");
+		transaction.commit();
+		return returned;
+	}
+	// DELETE
+	// manager.delete();
 
 }

@@ -21,7 +21,7 @@ public class Account {
 
 	// instantiate task collection
 	@OneToMany(cascade = CascadeType.PERSIST) // declare one to many relationship
-	@JoinColumn
+	@JoinColumn(name = "Account_id")
 	// must be a collection for one to many to work
 	Set<Task> tasklist = new HashSet<Task>();
 
